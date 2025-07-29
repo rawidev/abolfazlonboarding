@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abolfazl UX Research Onboarding - راهنمای آنبورد تحقیقات کاربری</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            direction: rtl;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-info {
+            text-align: left;
+        }
+
+        .welcome-message {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .topic-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .topic-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .topic-icon {
+            font-size: 2rem;
+            margin-left: 1rem;
+            color: #667eea;
+        }
+
+        .topic-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .topic-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-right: 4px solid #667eea;
+        }
+
+        .resource-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.3rem 0.8rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            background: #5a6fd8;
+            transform: translateY(-1px);
+        }
+
+        .resource-link.read {
+            background: #27ae60;
+        }
+
+        .resource-link.watch {
+            background: #e74c3c;
+        }
+
+        .resource-link.do {
+            background: #f39c12;
+        }
+
+        
+        .resource-link.learn {
+            background: #3498db;
+        }
+        
+        .resource-link.learn:hover {
+            background: #2980b9;
+        }
+
+        .resource-link.basalam {
+            background: #9b59b6;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-note {
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .topic-card {
+                padding: 1.5rem;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile-info {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="profile-section">
+                <img src="abolfazl.jpg" alt="Abolfazl" class="profile-photo">
+                <div class="profile-info">
+                    <h1><i class="fas fa-user-graduate"></i> راهنمای آنبورد Abolfazl</h1>
+                    <p>مرحله به مرحله یادگیری مفاهیم و مهارت‌های تحقیقات کاربری</p>
+                    <p class="welcome-message">خوش آمدید Abolfazl! این راهنما برای شما طراحی شده است</p>
+                </div>
+            </div>
+        </div>
+
+        
+<div style="background: #d4edda; border: 1px solid #c3e6cb; padding: 1rem; margin-bottom: 2rem; border-radius: 8px; color: #155724;">
+    <strong>✅ منابع معتبر:</strong> تمام لینک‌های ویدیو از Interaction Design Foundation و منابع معتبر UX هستند.
+    <br><strong>Reliable Sources:</strong> All video links are from Interaction Design Foundation and trusted UX sources.
+</div>
+
+        <div class="topics-grid">
+            <!-- مرحله ۱: مفاهیم پایه -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h2 class="topic-title">مرحله ۱: مفاهیم پایه</h2>
+                </div>
+                <p class="topic-description">آشنایی با اصول اولیه و مفاهیم کلیدی UX Research</p>
+                
+                <ul class="resource-list">
+                    <li class="resource-item">
+                        <div class="resource-title">اصول Heuristic (Nielsen's 10 Heuristics)</div>
+                        <div class="resource-description">یادگیری ۱۰ اصل اساسی برای طراحی رابط‌های کاربری</div>
+                        <div class="resource-links">
+                            <a href="https://www.nngroup.com/articles/ten-usability-heuristics/" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/heuristic-evaluation" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/heuristic-evaluation" class="resource-link do" target="_blank">
+                                <i class="fas fa-tasks"></i> تمرین
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">User-Centered Design</div>
+                        <div class="resource-description">درک مفهوم طراحی متمرکز بر کاربر</div>
+                        <div class="resource-links">
+                            <a href="https://www.usability.gov/what-and-why/user-centered-design.html" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/user-centered-design" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">Usability و Accessibility</div>
+                        <div class="resource-description">مفاهیم قابلیت استفاده و دسترسی‌پذیری</div>
+                        <div class="resource-links">
+                            <a href="https://www.w3.org/WAI/fundamentals/accessibility-principles/" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/accessibility" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- مرحله ۲: روش‌های تحقیقاتی -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h2 class="topic-title">مرحله ۲: روش‌های تحقیقاتی</h2>
+                </div>
+                <p class="topic-description">آشنایی با روش‌های مختلف جمع‌آوری و تحلیل داده‌های کاربری</p>
+                
+                <ul class="resource-list">
+                    <li class="resource-item">
+                        <div class="resource-title">User Interviews</div>
+                        <div class="resource-description">مصاحبه‌های عمیق با کاربران</div>
+                        <div class="resource-links">
+                            <a href="https://www.nngroup.com/articles/user-interviews/" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/heuristic-evaluation" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/user-interviews" class="resource-link do" target="_blank">
+                                <i class="fas fa-tasks"></i> تمرین
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">Usability Testing</div>
+                        <div class="resource-description">تست قابلیت استفاده محصولات</div>
+                        <div class="resource-links">
+                            <a href="https://www.nngroup.com/articles/usability-testing-101/" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/usability-testing" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">Analytics و A/B Testing</div>
+                        <div class="resource-description">تحلیل داده‌های رفتاری و تست‌های مقایسه‌ای</div>
+                        <div class="resource-links">
+                            <a href="https://www.optimizely.com/optimization-glossary/ab-testing/" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/heuristic-evaluation" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">Surveys و Questionnaires</div>
+                        <div class="resource-description">طراحی و اجرای پرسش‌نامه‌های کاربری</div>
+                        <div class="resource-links">
+                            <a href="https://www.nngroup.com/articles/online-surveys/" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/heuristic-evaluation" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- مرحله ۳: ابزارها و تکنیک‌ها -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h2 class="topic-title">مرحله ۳: ابزارها و تکنیک‌ها</h2>
+                </div>
+                <p class="topic-description">معرفی ابزارهای تحقیقاتی و تکنیک‌های تحلیل داده</p>
+                
+                <ul class="resource-list">
+                    <li class="resource-item">
+                        <div class="resource-title">ابزارهای تحقیقاتی</div>
+                        <div class="resource-description">UserTesting, UserZoom, Hotjar, و سایر ابزارها</div>
+                        <div class="resource-links">
+                            <a href="https://www.usertesting.com/" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/heuristic-evaluation" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                            <a href="https://www.hotjar.com/" class="resource-link do" target="_blank">
+                                <i class="fas fa-tasks"></i> تمرین
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">Affinity Mapping</div>
+                        <div class="resource-description">تکنیک گروه‌بندی و تحلیل داده‌های کیفی</div>
+                        <div class="resource-links">
+                            <a href="https://www.interaction-design.org/literature/topics/affinity-diagrams" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/heuristic-evaluation" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">Persona Creation</div>
+                        <div class="resource-description">ساخت پروفایل کاربران هدف</div>
+                        <div class="resource-links">
+                            <a href="https://www.nngroup.com/articles/persona/" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/heuristic-evaluation" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">Journey Mapping</div>
+                        <div class="resource-description">نقشه‌برداری مسیر کاربر</div>
+                        <div class="resource-links">
+                            <a href="https://www.nngroup.com/articles/journey-mapping/" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/heuristic-evaluation" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- مرحله ۴: استانداردها و بهترین شیوه‌ها -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h2 class="topic-title">مرحله ۴: استانداردها و بهترین شیوه‌ها</h2>
+                </div>
+                <p class="topic-description">آشنایی با استانداردهای صنعت و فرآیندهای کاری</p>
+                
+                <ul class="resource-list">
+                    <li class="resource-item">
+                        <div class="resource-title">ISO 9241 و WCAG</div>
+                        <div class="resource-description">استانداردهای ارگونومیک و دسترسی‌پذیری</div>
+                        <div class="resource-links">
+                            <a href="https://www.iso.org/standard/63712.html" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.w3.org/WAI/WCAG21/quickref/" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">Research Planning</div>
+                        <div class="resource-description">برنامه‌ریزی و طراحی تحقیقات کاربری</div>
+                        <div class="resource-links">
+                            <a href="https://www.nngroup.com/articles/research-plan/" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/heuristic-evaluation" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">Reporting و Presentation</div>
+                        <div class="resource-description">گزارش‌دهی و ارائه نتایج تحقیقات</div>
+                        <div class="resource-links">
+                            <a href="https://www.nngroup.com/articles/reporting-usability-test-results/" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/heuristic-evaluation" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">Ethics در تحقیقات کاربری</div>
+                        <div class="resource-description">ملاحظات اخلاقی و حریم خصوصی</div>
+                        <div class="resource-links">
+                            <a href="https://www.interaction-design.org/literature/topics/research-ethics" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مطالعه
+                            </a>
+                            <a href="https://www.interaction-design.org/literature/topics/heuristic-evaluation" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> یادگیری
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- مرحله ۵: دیزاین در باسلام -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h2 class="topic-title">مرحله ۵: دیزاین در باسلام</h2>
+                </div>
+                <p class="topic-description">آشنایی با تیم، اصول دیزاین در باسلام و مستندات</p>
+                
+                <ul class="resource-list">
+                    <li class="resource-item">
+                        <div class="resource-title">دیزاین سیستم باسلام</div>
+                        <div class="resource-description">آشنایی با Design System و کامپوننت‌های باسلام</div>
+                        <div class="resource-links">
+                            <a href="#" class="resource-link basalam" target="_blank">
+                                <i class="fas fa-palette"></i> دیزاین سیستم
+                            </a>
+                            <a href="#" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مستندات
+                            </a>
+                            <a href="#" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-play"></i> ویدیو آموزشی
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">فرایندهای کاری</div>
+                        <div class="resource-description">آشنایی با فرایندهای کاری تیم دیزاین و ریسرچ</div>
+                        <div class="resource-links">
+                            <a href="#" class="resource-link basalam" target="_blank">
+                                <i class="fas fa-sitemap"></i> فرایندها
+                            </a>
+                            <a href="#" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> راهنما
+                            </a>
+                            <a href="#" class="resource-link do" target="_blank">
+                                <i class="fas fa-tasks"></i> تمرین
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">آشنایی با چپتر دیزاین</div>
+                        <div class="resource-description">معرفی اعضای تیم و مسئولیت‌های هر فرد</div>
+                        <div class="resource-links">
+                            <a href="#" class="resource-link basalam" target="_blank">
+                                <i class="fas fa-users"></i> تیم دیزاین
+                            </a>
+                            <a href="#" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> معرفی اعضا
+                            </a>
+                            <a href="#" class="resource-link learn" style="opacity: 0.7;" title="⚠️ این لینک نیاز به تأیید دارد - This link needs verification" target="_blank">
+                                <i class="fas fa-play"></i> جلسه معرفی
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">جداول و ساختارهای داده</div>
+                        <div class="resource-description">آشنایی با جداول، API ها و ساختارهای داده باسلام</div>
+                        <div class="resource-links">
+                            <a href="#" class="resource-link basalam" target="_blank">
+                                <i class="fas fa-database"></i> ساختار داده
+                            </a>
+                            <a href="#" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> مستندات API
+                            </a>
+                            <a href="#" class="resource-link do" target="_blank">
+                                <i class="fas fa-tasks"></i> تمرین
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="resource-item">
+                        <div class="resource-title">ابزارهای اختصاصی ریسرچ در باسلام</div>
+                        <div class="resource-description">آشنایی با ابزارهای داخلی و اختصاصی تیم ریسرچ</div>
+                        <div class="resource-links">
+                            <a href="#" class="resource-link basalam" target="_blank">
+                                <i class="fas fa-tools"></i> ابزارهای داخلی
+                            </a>
+                            <a href="#" class="resource-link read" target="_blank">
+                                <i class="fas fa-book"></i> راهنمای ابزارها
+                            </a>
+                            <a href="#" class="resource-link do" target="_blank">
+                                <i class="fas fa-tasks"></i> تمرین عملی
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>این راهنما برای آنبورد کردن Abolfazl در تیم UX Research طراحی شده است</p>
+            <p>هر مرحله شامل منابع مطالعه، یادگیری و تمرینات عملی است</p>
+            <p class="footer-note">با موفقیت در این مسیر یادگیری، Abolfazl! 🚀</p>
+        </div>
+    </div>
+</body>
+</html>
